@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/glass",
+  "textures": {
+    "all": "junta:block/zp_beam_yellow"
+  }
+}

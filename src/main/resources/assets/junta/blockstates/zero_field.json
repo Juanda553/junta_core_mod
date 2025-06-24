@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "junta:block/zero_field" }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "death.attack.herobrine_melee": "Herobrine ha reventado a %1$s",
+
+  "item.junta.hb_area_attack": "Herobrine ATAQUE AREA",
+  "item.junta.hb_ulti_attack": "Herobrine ULTI",
+  "item.junta.hb_ranged_attack": "Herobrine ATAQUE DISTANCIA",
+  "item.junta.limoncito": "Limoncito",
+  "item.junta.golden_accordion": "Acordeón dorado",
+  "item.junta.jhc_letter": "Carta de invitación",
+  "item.junta.aguardiente_azul": "Pipona de alcohol tapa azul",
+  "item.junta.aguardiente_verde": "Pipona de alcohol tapa verde",
+  "item.junta.aguardiente_rojo": "Pipona de alcohol tapa roja",
+  "item.junta.buchanans": "Botella de alcohol fuerte",
+  "item.junta.zero_fragment": "Fragmento ZERO",
+  "item.junta.energy_drink": "Bebida energizante",
+
+  "entity.junta.zero_point_orb": "Orbe del Punto Cero",
+
+  "biome.junta.zero_point_corruption": "Corrupcion del Punto Zero",
+  "biome.junta.zero_point_dimension": "Dimension Zero",
+
+  "itemgroup.junta.junta_tab": "La Junta"
+}
