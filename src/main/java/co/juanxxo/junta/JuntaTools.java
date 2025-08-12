@@ -1,5 +1,6 @@
 package co.juanxxo.junta;
 
+import co.juanxxo.junta.entity.DefaultJuntaRaccoonEntity;
 import co.juanxxo.junta.entity.ZeroPointOrbEntity;
 import co.juanxxo.junta.registry.*;
 import net.fabricmc.api.ModInitializer;
@@ -23,6 +24,9 @@ public class JuntaTools implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		// Registrar mobs
 		FabricDefaultAttributeRegistry.register(ModEntities.ZERO_POINT_ORB, ZeroPointOrbEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.DEFAULT_JUNTA_RACCOON, DefaultJuntaRaccoonEntity.setAttributes());
+		// Registrar efectos
+		ModEffects.registerEffects();
 
 		LOGGER.info("La Junta Hardcore mobs ha cargado xd");
 	}

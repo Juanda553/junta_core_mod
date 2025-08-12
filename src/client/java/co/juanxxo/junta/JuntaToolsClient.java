@@ -1,5 +1,6 @@
 package co.juanxxo.junta;
 
+import co.juanxxo.junta.entity.renderer.DefaultJuntaRaccoonRenderer;
 import co.juanxxo.junta.registry.ModBlocks;
 import co.juanxxo.junta.registry.ModEntities;
 import co.juanxxo.junta.entity.renderer.HerobrineRangedAttackRenderer;
@@ -13,6 +14,7 @@ public class JuntaToolsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		EntityRendererRegistry.register(ModEntities.ZERO_POINT_ORB, ZeroPointOrbRenderer::new);
+		EntityRendererRegistry.register(ModEntities.DEFAULT_JUNTA_RACCOON, DefaultJuntaRaccoonRenderer::new);
 		EntityRendererRegistry.register(ModEntities.HEROBRINE_RANGED_ATTACK_ENTITY, HerobrineRangedAttackRenderer::new);
 
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ZP_BLUE_LASER, RenderLayer.getTranslucent());
