@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "junta",
 	"version": "${version}",
-	"name": "Junta Tools",
+	"name": "Junta Core",
 	"description": "Mod hecho para todos los items y cosas custom que hay en La Junta <3",
 	"authors": [
 		"JuanDa553"
