@@ -1,6 +1,6 @@
 package co.juanxxo.junta.registry;
 
-import co.juanxxo.junta.JuntaTools;
+import co.juanxxo.junta.JuntaCoreMain;
 import co.juanxxo.junta.entity.DefaultJuntaRaccoonEntity;
 import co.juanxxo.junta.entity.HerobrineRangedAttackEntity;
 import co.juanxxo.junta.entity.ZeroPointOrbEntity;
@@ -22,11 +22,11 @@ public class ModEntities {
 
     public static <T extends Entity> EntityType<T> registerEnity(String name, EntityType.EntityFactory<T> entity, float w, float h){
         return Registry.register(
-                Registries.ENTITY_TYPE, Identifier.of(JuntaTools.MOD_ID, name),
+                Registries.ENTITY_TYPE, Identifier.of(JuntaCoreMain.MOD_ID, name),
                 FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, entity).dimensions(EntityDimensions.fixed(w,h)).build());
     }
 
     public static void register() {
-        JuntaTools.LOGGER.info("Mobs registrados para Junta");
+        JuntaCoreMain.LOGGER.info("Mobs registrados para Junta");
     }
 }

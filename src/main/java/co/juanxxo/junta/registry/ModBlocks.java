@@ -1,7 +1,6 @@
 package co.juanxxo.junta.registry;
 
-import co.juanxxo.junta.JuntaTools;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import co.juanxxo.junta.JuntaCoreMain;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
@@ -59,14 +58,14 @@ public class ModBlocks {
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, Identifier.of(JuntaTools.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, Identifier.of(JuntaCoreMain.MOD_ID, name), block);
     }
 
     private static void registerBlockItem(String name, Block block){
-        Registry.register(Registries.ITEM, Identifier.of(JuntaTools.MOD_ID, name), new BlockItem(block, new Item.Settings()));
+        Registry.register(Registries.ITEM, Identifier.of(JuntaCoreMain.MOD_ID, name), new BlockItem(block, new Item.Settings()));
     }
 
     public static void registerModBlocks(){
-        JuntaTools.LOGGER.info("Registrando bloques de La Junta.");
+        JuntaCoreMain.LOGGER.info("Registrando bloques de La Junta.");
     }
 }

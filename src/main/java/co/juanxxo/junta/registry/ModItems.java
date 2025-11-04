@@ -1,9 +1,8 @@
 package co.juanxxo.junta.registry;
 
-import co.juanxxo.junta.JuntaTools;
+import co.juanxxo.junta.JuntaCoreMain;
 import co.juanxxo.junta.items.*;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.component.type.FoodComponents;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -29,10 +28,10 @@ public class ModItems {
     public static final Item ZERO_FRAGMENT = register("zero_fragment", new Item(new Item.Settings().rarity(Rarity.EPIC)));
 
     private static Item register(String name, Item item) {
-        return Registry.register(Registries.ITEM, Identifier.of(JuntaTools.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, Identifier.of(JuntaCoreMain.MOD_ID, name), item);
     }
 
     public static void registerModItems() {
-        JuntaTools.LOGGER.info("Registrando ítems de " + JuntaTools.MOD_ID);
+        JuntaCoreMain.LOGGER.info("Registrando ítems de " + JuntaCoreMain.MOD_ID);
     }
 }

@@ -14,10 +14,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"co.juanxxo.junta.JuntaTools"
+          "co.juanxxo.junta.JuntaCoreMain"
 		],
 		"client": [
-			"co.juanxxo.junta.JuntaToolsClient"
+			"co.juanxxo.junta.JuntaCoreClient"
 		]
 	},
 	"mixins": [

@@ -10,7 +10,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import co.juanxxo.junta.entity.renderer.ZeroPointOrbRenderer;
 import net.minecraft.client.render.RenderLayer;
 
-public class JuntaToolsClient implements ClientModInitializer {
+public class JuntaCoreClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		EntityRendererRegistry.register(ModEntities.ZERO_POINT_ORB, ZeroPointOrbRenderer::new);

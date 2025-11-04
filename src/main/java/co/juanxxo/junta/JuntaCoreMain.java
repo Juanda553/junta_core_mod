@@ -9,7 +9,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JuntaTools implements ModInitializer {
+public class JuntaCoreMain implements ModInitializer {
 	public static final String MOD_ID = "junta";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -28,6 +28,6 @@ public class JuntaTools implements ModInitializer {
 		// Registrar efectos
 		ModEffects.registerEffects();
 
-		LOGGER.info("La Junta Hardcore mobs ha cargado xd");
+		LOGGER.info("La Junta Core Cargado");
 	}
 }

@@ -1,6 +1,6 @@
 package co.juanxxo.junta.registry;
 
-import co.juanxxo.junta.JuntaTools;
+import co.juanxxo.junta.JuntaCoreMain;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroups {
     public static final ItemGroup JUNTA_TAB = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(JuntaTools.MOD_ID, "junta_tab"),
+            Identifier.of(JuntaCoreMain.MOD_ID, "junta_tab"),
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.LIMONCITO))
                     .displayName(Text.translatable("itemgroup.junta.junta_tab"))
                     .entries((displayContext, entries) -> {
@@ -46,6 +46,6 @@ public class ModItemGroups {
                     }).build());
 
     public static void registerItems() {
-        JuntaTools.LOGGER.info("Grupos de items registrados para JUNTA");
+        JuntaCoreMain.LOGGER.info("Grupos de items registrados para JUNTA");
     }
 }
