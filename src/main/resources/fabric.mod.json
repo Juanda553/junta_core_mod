@@ -12,6 +12,16 @@
 	"license": "CC0-1.0",
 	"icon": "assets/junta/icon.png",
 	"environment": "*",
+	"custom": {
+		"modmenu": {
+			"badges": [ "library" ],
+			"parent": {
+				"id": "junta",
+				"name": "Junta Core",
+				"badges": [ "library" ]
+			}
+		}
+	},
 	"entrypoints": {
 		"main": [
           "co.juanxxo.junta.JuntaCoreMain"
