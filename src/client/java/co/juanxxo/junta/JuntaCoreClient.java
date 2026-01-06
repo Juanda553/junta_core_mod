@@ -6,8 +6,14 @@ import co.juanxxo.junta.registry.ModEntities;
 import co.juanxxo.junta.entity.renderer.HerobrineRangedAttackRenderer;
 import co.juanxxo.junta.overlay.WaitingOverlay;
 import co.juanxxo.junta.overlay.CountdownOverlay;
+import co.juanxxo.junta.overlay.AnimationOverlay;
+import co.juanxxo.junta.overlay.ImageOverlay;
+import co.juanxxo.junta.overlay.AnimationPosition;
+import co.juanxxo.junta.overlay.AnimationSize;
 import co.juanxxo.junta.command.WaitingOverlayCommand;
 import co.juanxxo.junta.command.CountdownCommand;
+import co.juanxxo.junta.command.AnimationCommand;
+import co.juanxxo.junta.command.ImageCommand;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -21,6 +27,8 @@ public class JuntaCoreClient implements ClientModInitializer {
 		// Registrar overlays
 		WaitingOverlay.register();
 		CountdownOverlay.register();
+		AnimationOverlay.register();
+		ImageOverlay.register();
 		
 		// Registrar receptores de paquetes de red - Waiting Overlay
 		ClientPlayNetworking.registerGlobalReceiver(WaitingOverlayCommand.ShowWaitingPayload.ID, (payload, context) -> {
@@ -51,6 +59,34 @@ public class JuntaCoreClient implements ClientModInitializer {
 		ClientPlayNetworking.registerGlobalReceiver(CountdownCommand.StopCountdownPayload.ID, (payload, context) -> {
 			context.client().execute(() -> CountdownOverlay.stop());
 		});
+		
+		// Registrar receptores de paquetes de red - Animation
+		ClientPlayNetworking.registerGlobalReceiver(AnimationCommand.PlayAnimationPayload.ID, (payload, context) -> {
+			context.client().execute(() -> {
+				AnimationPosition position = AnimationPosition.fromString(payload.position());
+				AnimationSize size = AnimationSize.fromString(payload.size());
+				AnimationOverlay.play(payload.animationName(), position, size, payload.fps());
+			});
+		});
+		
+		ClientPlayNetworking.registerGlobalReceiver(AnimationCommand.StopAnimationPayload.ID, (payload, context) -> {
+			context.client().execute(() -> AnimationOverlay.stop());
+		});
+		
+		// Registrar receptores de paquetes de red - Image
+		ClientPlayNetworking.registerGlobalReceiver(ImageCommand.ShowImagePayload.ID, (payload, context) -> {
+			context.client().execute(() -> {
+				AnimationPosition position = AnimationPosition.fromString(payload.position());
+				AnimationSize size = AnimationSize.fromString(payload.size());
+				ImageOverlay.show(payload.imageName(), position, size, 
+					payload.durationSeconds(), payload.fadeInSeconds(), payload.fadeOutSeconds());
+			});
+		});
+		
+		ClientPlayNetworking.registerGlobalReceiver(ImageCommand.HideImagePayload.ID, (payload, context) -> {
+			context.client().execute(() -> ImageOverlay.hide());
+		});
+		
 		EntityRendererRegistry.register(ModEntities.ZERO_POINT_ORB, ZeroPointOrbRenderer::new);
 		EntityRendererRegistry.register(ModEntities.DEFAULT_JUNTA_RACCOON, DefaultJuntaRaccoonRenderer::new);
 		EntityRendererRegistry.register(ModEntities.HEROBRINE_RANGED_ATTACK_ENTITY, HerobrineRangedAttackRenderer::new);

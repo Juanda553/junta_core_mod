@@ -2,6 +2,8 @@ package co.juanxxo.junta;
 
 import co.juanxxo.junta.command.WaitingOverlayCommand;
 import co.juanxxo.junta.command.CountdownCommand;
+import co.juanxxo.junta.command.AnimationCommand;
+import co.juanxxo.junta.command.ImageCommand;
 import co.juanxxo.junta.entity.DefaultJuntaRaccoonEntity;
 import co.juanxxo.junta.entity.ZeroPointOrbEntity;
 import co.juanxxo.junta.overlay.OverlayState;
@@ -44,10 +46,20 @@ public class JuntaCoreMain implements ModInitializer {
 		PayloadTypeRegistry.playS2C().register(CountdownCommand.PauseCountdownPayload.ID, CountdownCommand.PauseCountdownPayload.CODEC);
 		PayloadTypeRegistry.playS2C().register(CountdownCommand.ResumeCountdownPayload.ID, CountdownCommand.ResumeCountdownPayload.CODEC);
 		PayloadTypeRegistry.playS2C().register(CountdownCommand.StopCountdownPayload.ID, CountdownCommand.StopCountdownPayload.CODEC);
+	
+	// Registrar tipos de payload - Animation
+	PayloadTypeRegistry.playS2C().register(AnimationCommand.PlayAnimationPayload.ID, AnimationCommand.PlayAnimationPayload.CODEC);
+	PayloadTypeRegistry.playS2C().register(AnimationCommand.StopAnimationPayload.ID, AnimationCommand.StopAnimationPayload.CODEC);
+	
+	// Registrar tipos de payload - Image
+	PayloadTypeRegistry.playS2C().register(ImageCommand.ShowImagePayload.ID, ImageCommand.ShowImagePayload.CODEC);
+	PayloadTypeRegistry.playS2C().register(ImageCommand.HideImagePayload.ID, ImageCommand.HideImagePayload.CODEC);
 		
 		// Registrar comandos
 		CommandRegistrationCallback.EVENT.register(WaitingOverlayCommand::register);
 		CommandRegistrationCallback.EVENT.register(CountdownCommand::register);
+		CommandRegistrationCallback.EVENT.register(AnimationCommand::register);
+		CommandRegistrationCallback.EVENT.register(ImageCommand::register);
 		
 		// Sincronizar overlays cuando un jugador se conecta
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
